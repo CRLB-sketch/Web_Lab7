@@ -10,6 +10,26 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./node_modules/css-loader/dist/runtime/api.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/css-loader/dist/runtime/api.js ***!
+  \*****************************************************/
+/***/ ((module) => {
+
+eval("\n/*\n  MIT License http://www.opensource.org/licenses/mit-license.php\n  Author Tobias Koppers @sokra\n*/\n\nmodule.exports = function (cssWithMappingToString) {\n  var list = []; // return the list of modules as css string\n\n  list.toString = function toString() {\n    return this.map(function (item) {\n      var content = \"\";\n      var needLayer = typeof item[5] !== \"undefined\";\n\n      if (item[4]) {\n        content += \"@supports (\".concat(item[4], \") {\");\n      }\n\n      if (item[2]) {\n        content += \"@media \".concat(item[2], \" {\");\n      }\n\n      if (needLayer) {\n        content += \"@layer\".concat(item[5].length > 0 ? \" \".concat(item[5]) : \"\", \" {\");\n      }\n\n      content += cssWithMappingToString(item);\n\n      if (needLayer) {\n        content += \"}\";\n      }\n\n      if (item[2]) {\n        content += \"}\";\n      }\n\n      if (item[4]) {\n        content += \"}\";\n      }\n\n      return content;\n    }).join(\"\");\n  }; // import a list of modules into the list\n\n\n  list.i = function i(modules, media, dedupe, supports, layer) {\n    if (typeof modules === \"string\") {\n      modules = [[null, modules, undefined]];\n    }\n\n    var alreadyImportedModules = {};\n\n    if (dedupe) {\n      for (var k = 0; k < this.length; k++) {\n        var id = this[k][0];\n\n        if (id != null) {\n          alreadyImportedModules[id] = true;\n        }\n      }\n    }\n\n    for (var _k = 0; _k < modules.length; _k++) {\n      var item = [].concat(modules[_k]);\n\n      if (dedupe && alreadyImportedModules[item[0]]) {\n        continue;\n      }\n\n      if (typeof layer !== \"undefined\") {\n        if (typeof item[5] === \"undefined\") {\n          item[5] = layer;\n        } else {\n          item[1] = \"@layer\".concat(item[5].length > 0 ? \" \".concat(item[5]) : \"\", \" {\").concat(item[1], \"}\");\n          item[5] = layer;\n        }\n      }\n\n      if (media) {\n        if (!item[2]) {\n          item[2] = media;\n        } else {\n          item[1] = \"@media \".concat(item[2], \" {\").concat(item[1], \"}\");\n          item[2] = media;\n        }\n      }\n\n      if (supports) {\n        if (!item[4]) {\n          item[4] = \"\".concat(supports);\n        } else {\n          item[1] = \"@supports (\".concat(item[4], \") {\").concat(item[1], \"}\");\n          item[4] = supports;\n        }\n      }\n\n      list.push(item);\n    }\n  };\n\n  return list;\n};\n\n//# sourceURL=webpack://laboratorio7/./node_modules/css-loader/dist/runtime/api.js?");
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/runtime/noSourceMaps.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/css-loader/dist/runtime/noSourceMaps.js ***!
+  \**************************************************************/
+/***/ ((module) => {
+
+eval("\n\nmodule.exports = function (i) {\n  return i[1];\n};\n\n//# sourceURL=webpack://laboratorio7/./node_modules/css-loader/dist/runtime/noSourceMaps.js?");
+
+/***/ }),
+
 /***/ "./node_modules/react-dom/cjs/react-dom.development.js":
 /*!*************************************************************!*\
   !*** ./node_modules/react-dom/cjs/react-dom.development.js ***!
@@ -76,7 +96,7 @@ eval("\n\nif (false) {} else {\n  module.exports = __webpack_require__(/*! ./cjs
   \*********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ \"./node_modules/react-dom/index.js\");\n/* harmony import */ var _components_Start_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/Start.jsx */ \"./src/components/Start.jsx\");\n/* harmony import */ var _components_Game_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/Game.jsx */ \"./src/components/Game.jsx\");\n\n\n\n // import './styles/style.css'\n\nconst App = () => {\n  const [startPlay, setStartPlay] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, !startPlay && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_Start_jsx__WEBPACK_IMPORTED_MODULE_2__[\"default\"], {\n    setStartPlay: setStartPlay\n  }), startPlay && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_Game_jsx__WEBPACK_IMPORTED_MODULE_3__[\"default\"], null));\n};\n\nconst rootElement = document.getElementById(\"root\");\nreact_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(App, null), rootElement);\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (App);\n\n//# sourceURL=webpack://laboratorio7/./src/App.jsx?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ \"./node_modules/react-dom/index.js\");\n/* harmony import */ var _components_InitialPage_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/InitialPage.jsx */ \"./src/components/InitialPage.jsx\");\n/* harmony import */ var _components_Game_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/Game.jsx */ \"./src/components/Game.jsx\");\n\n\n\n // import styl'./styles/style.css'\n// import Styles from 'style-loader!css-loader?modules!./styles/style.css';\n\nconst App = () => {\n  const [start, setStart] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, !start && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_InitialPage_jsx__WEBPACK_IMPORTED_MODULE_2__[\"default\"], {\n    setStart: setStart\n  }), start && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_Game_jsx__WEBPACK_IMPORTED_MODULE_3__[\"default\"], null));\n};\n\nconst rootElement = document.getElementById(\"root\");\nreact_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(App, null), rootElement);\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (App);\n\n//# sourceURL=webpack://laboratorio7/./src/App.jsx?");
 
 /***/ }),
 
@@ -86,17 +106,47 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \*********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ \"./node_modules/react-dom/index.js\");\n\n\n\nconst Game = () => {\n  const [labyrinth, setLabyrinth] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);\n  const [ready, setReady] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);\n  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {\n    fetch(\"https://maze.juanelcaballo.club/?type=json&w=4&h=4\").then(response => response.json()).then(result => {\n      setLabyrinth(result);\n      setReady(true);\n    }).catch(error => alert(\"Error inesperado con los shows\" + error));\n  }, []);\n\n  const element = ({\n    item\n  }) => {\n    // Tenemos los siguientes elementos a analizar: \n    // +, -, |, *espacio en blanco*\n    // p [jugador], g [Meta]\n\n    /*#__PURE__*/\n    react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null);\n  };\n\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, !ready && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"h1\", null, \"Cargando...\"), ready && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"h1\", null, \"QUE EMPIECE EL JUEGO\"), labyrinth.map(item => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"p\", null, item))));\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Game);\n\n//# sourceURL=webpack://laboratorio7/./src/components/Game.jsx?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ \"./node_modules/react-dom/index.js\");\n/* harmony import */ var _Input_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Input.jsx */ \"./src/components/Input.jsx\");\n/* harmony import */ var _styles_style_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../styles/style.css */ \"./src/styles/style.css\");\n\n\n // import Styles from 'style-loader!css-loader?modules!../styles/style.css';\n\n\n\nconst Game = () => {\n  const [labyrinth, setLabyrinth] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);\n  const [ready, setReady] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);\n  const [finish, setFinish] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);\n  const [weight, setWeight] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(4);\n  const [height, setHeight] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(4);\n  let posPlayerX = -1;\n  let posPlayerY = -1;\n\n  const CreateNewLabyrinth = () => {\n    setReady(false);\n    fetch(`https://maze.juanelcaballo.club/?type=json&w=${weight}&h=${height}`).then(response => response.json()).then(result => {\n      setLabyrinth(result);\n      setFinish(false);\n      setReady(true);\n    }).catch(error => alert(\"Error inesperado con los shows\" + error));\n  };\n\n  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {\n    CreateNewLabyrinth();\n  }, []);\n\n  const InsertElement = ({\n    element,\n    i,\n    j\n  }) => {\n    if (element === 'p') {\n      posPlayerX = i;\n      posPlayerY = j;\n    }\n\n    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"td\", null, element);\n  };\n\n  const changuePosition = (defX, defY, x, y) => {\n    if (!finish) {\n      const element = labyrinth[x][y];\n\n      if (element === ' ') {\n        console.log(\"CAMINAR\");\n        const renderNewLabyrinth = [...labyrinth];\n        renderNewLabyrinth[defX][defY] = ' ';\n        renderNewLabyrinth[x][y] = 'p';\n        posPlayerX = x;\n        posPlayerY = y;\n        setLabyrinth(renderNewLabyrinth);\n      } else if (element === 'g') {\n        alert(\"JUEGO TERMINADO\");\n        setFinish(true);\n      }\n    }\n  };\n\n  const handleKeyDown = e => {\n    if ((e.key === \"w\" || e.key === \"W\") && ready) {\n      console.log(\"ARRIBA = \" + labyrinth[posPlayerX - 1][posPlayerY]);\n      changuePosition(posPlayerX, posPlayerY, posPlayerX - 1, posPlayerY);\n    } else if ((e.key === \"s\" || e.key === \"S\") && ready) {\n      console.log(\"ABAJO = \" + labyrinth[posPlayerX + 1][posPlayerY]);\n      changuePosition(posPlayerX, posPlayerY, posPlayerX + 1, posPlayerY);\n    } else if ((e.key === \"d\" || e.key === \"D\") && ready) {\n      console.log(\"DERECHA = \" + labyrinth[posPlayerX][posPlayerY + 1]);\n      changuePosition(posPlayerX, posPlayerY, posPlayerX, posPlayerY + 1);\n    } else if ((e.key === \"a\" || e.key === \"A\") && ready) {\n      console.log(\"IZQUIERDA = \" + labyrinth[posPlayerX][posPlayerY - 1]);\n      changuePosition(posPlayerX, posPlayerY, posPlayerX, posPlayerY - 1);\n    }\n  }; // const title = {\n  //     color: 'red'\n  // }\n\n\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", {\n    onKeyDown: handleKeyDown,\n    tabIndex: \"0\"\n  }, !ready && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"h1\", null, \"Cargando...\"), ready && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"h1\", {\n    className: \"title\"\n  }, \"\\xA1QUE EMPIECE EL JUEGO!\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"form\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Input_jsx__WEBPACK_IMPORTED_MODULE_2__[\"default\"], {\n    field: \"Ancho:\",\n    value: weight,\n    setValue: setWeight\n  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Input_jsx__WEBPACK_IMPORTED_MODULE_2__[\"default\"], {\n    field: \"Alto:\",\n    value: height,\n    setValue: setHeight\n  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"br\", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"button\", {\n    onClick: CreateNewLabyrinth\n  }, \"CREAR NUEVO LABERINTO\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"table\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"tbody\", null, labyrinth.slice(0, labyrinth.length).map((item, i) => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"tr\", null, item.map((element, j) => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(InsertElement, {\n    element: element,\n    i: i,\n    j: j\n  }))))))));\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Game);\n\n//# sourceURL=webpack://laboratorio7/./src/components/Game.jsx?");
 
 /***/ }),
 
-/***/ "./src/components/Start.jsx":
+/***/ "./src/components/InitialPage.jsx":
+/*!****************************************!*\
+  !*** ./src/components/InitialPage.jsx ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ \"./node_modules/react-dom/index.js\");\n/* harmony import */ var _img_winamp_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../img/winamp.svg */ \"./src/img/winamp.svg\");\n\n // import Mario from \"../img/MarioBackground.jpg\"\n\n\n\nconst InitialPage = ({\n  setStart\n}) => {\n  // const myIcon = new Mario();\n  // myIcon.src = Icon;\n  // element.appendChild(myIcon);\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"h1\", {\n    className: \"title\"\n  }, \"SUPER MARIO BROS - Labyrinth Version\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"img\", {\n    src: _img_winamp_svg__WEBPACK_IMPORTED_MODULE_2__[\"default\"],\n    alt: \"Mario\"\n  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"button\", {\n    onClick: () => setStart(true)\n  }, \"START\"));\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (InitialPage);\n\n//# sourceURL=webpack://laboratorio7/./src/components/InitialPage.jsx?");
+
+/***/ }),
+
+/***/ "./src/components/Input.jsx":
 /*!**********************************!*\
-  !*** ./src/components/Start.jsx ***!
+  !*** ./src/components/Input.jsx ***!
   \**********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ \"./node_modules/react-dom/index.js\");\n\n\n\nconst Start = ({\n  setStartPlay\n}) => {\n  // const handleStart = () => {\n  //     setStartPlay(true)\n  // }\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"h1\", null, \"Laberinto\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"button\", {\n    onClick: () => setStartPlay(true)\n  }, \"JUGAR\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", {\n    className: \"pared\"\n  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", {\n    className: \"vacio\"\n  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", {\n    className: \"jugador\"\n  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", {\n    className: \"meta\"\n  }));\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Start);\n\n//# sourceURL=webpack://laboratorio7/./src/components/Start.jsx?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n\n\nconst InputForLabyrinth = ({\n  field,\n  value,\n  setValue\n}) => {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"label\", null, field), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"input\", {\n    type: \"number\",\n    required: true,\n    value: value,\n    min: \"4\",\n    max: \"10\",\n    onChange: e => setValue(e.target.value)\n  }));\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (InputForLabyrinth);\n\n//# sourceURL=webpack://laboratorio7/./src/components/Input.jsx?");
+
+/***/ }),
+
+/***/ "./src/styles/style.css":
+/*!******************************!*\
+  !*** ./src/styles/style.css ***!
+  \******************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/noSourceMaps.js */ \"./node_modules/css-loader/dist/runtime/noSourceMaps.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);\n// Imports\n\n\nvar ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));\n// Module\n___CSS_LOADER_EXPORT___.push([module.id, \"/* .pared {\\r\\n    background-color: blue;\\r\\n    height: 100px;\\r\\n    width: 100px;\\r\\n} */\\r\\n\\r\\n.title {\\r\\n    color: blue;\\r\\n    background-color: red;\\r\\n}\", \"\"]);\n// Exports\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);\n\n\n//# sourceURL=webpack://laboratorio7/./src/styles/style.css?");
+
+/***/ }),
+
+/***/ "./src/img/winamp.svg":
+/*!****************************!*\
+  !*** ./src/img/winamp.svg ***!
+  \****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + \"12f2045f352c6b1b2559e93175bba866.svg\");\n\n//# sourceURL=webpack://laboratorio7/./src/img/winamp.svg?");
 
 /***/ }),
 
@@ -164,6 +214,18 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var reac
 /******/ 		};
 /******/ 	})();
 /******/ 	
+/******/ 	/* webpack/runtime/global */
+/******/ 	(() => {
+/******/ 		__webpack_require__.g = (function() {
+/******/ 			if (typeof globalThis === 'object') return globalThis;
+/******/ 			try {
+/******/ 				return this || new Function('return this')();
+/******/ 			} catch (e) {
+/******/ 				if (typeof window === 'object') return window;
+/******/ 			}
+/******/ 		})();
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
@@ -187,6 +249,26 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var reac
 /******/ 			if (!module.children) module.children = [];
 /******/ 			return module;
 /******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/publicPath */
+/******/ 	(() => {
+/******/ 		var scriptUrl;
+/******/ 		if (__webpack_require__.g.importScripts) scriptUrl = __webpack_require__.g.location + "";
+/******/ 		var document = __webpack_require__.g.document;
+/******/ 		if (!scriptUrl && document) {
+/******/ 			if (document.currentScript)
+/******/ 				scriptUrl = document.currentScript.src
+/******/ 			if (!scriptUrl) {
+/******/ 				var scripts = document.getElementsByTagName("script");
+/******/ 				if(scripts.length) scriptUrl = scripts[scripts.length - 1].src
+/******/ 			}
+/******/ 		}
+/******/ 		// When supporting browsers where an automatic publicPath is not supported you must specify an output.publicPath manually via configuration
+/******/ 		// or pass an empty string ("") and set the __webpack_public_path__ variable from your code to use your own logic.
+/******/ 		if (!scriptUrl) throw new Error("Automatic publicPath is not supported in this browser");
+/******/ 		scriptUrl = scriptUrl.replace(/#.*$/, "").replace(/\?.*$/, "").replace(/\/[^\/]+$/, "/");
+/******/ 		__webpack_require__.p = scriptUrl;
 /******/ 	})();
 /******/ 	
 /************************************************************************/

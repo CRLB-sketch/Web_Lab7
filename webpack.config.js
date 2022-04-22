@@ -13,9 +13,11 @@ export default {
         port: 9000
     },
     module: {
-        rules: [{
-            test: [/\.jsx?$/],
-            use: ['babel-loader']
-        }]
+        rules: [
+            { test: [/\.jsx?$/], use: ['babel-loader']},
+            { test: [/\.css?$/], use: ['css-loader']},
+            { test: [/\.svg$/, /\.png$/], use: ['file-loader']}
+            // { test: [/\.png$/], use: ['file-loader']}
+        ]
     }
 }

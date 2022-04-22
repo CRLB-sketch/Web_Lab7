@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import reactDom from 'react-dom';
 import InputForLabyrinth from "./Input.jsx";
 
-// import '../styles/style.css'
+// import Styles from 'style-loader!css-loader?modules!../styles/style.css';
+import '../styles/style.css';
 
 const Game = () => {
                         
@@ -63,32 +64,24 @@ const Game = () => {
     }
 
     const handleKeyDown = (e) => {        
-        if(e.key === "w" || e.key === "W"){
-            if(ready){
-                console.log("ARRIBA = " + labyrinth[posPlayerX-1][posPlayerY])
-                changuePosition(posPlayerX, posPlayerY, posPlayerX-1, posPlayerY)
-            }
+        if((e.key === "w" || e.key === "W") && ready){
+            console.log("ARRIBA = " + labyrinth[posPlayerX-1][posPlayerY])
+            changuePosition(posPlayerX, posPlayerY, posPlayerX-1, posPlayerY)
         }    
         
-        else if(e.key === "s" || e.key === "S"){
-            if(ready){
-                console.log("ABAJO = " + labyrinth[posPlayerX+1][posPlayerY])
-                changuePosition(posPlayerX, posPlayerY, posPlayerX+1, posPlayerY)
-            }
+        else if((e.key === "s" || e.key === "S") && ready){
+            console.log("ABAJO = " + labyrinth[posPlayerX+1][posPlayerY])
+            changuePosition(posPlayerX, posPlayerY, posPlayerX+1, posPlayerY)
         }    
         
-        else if(e.key === "d" || e.key === "D"){
-            if(ready){
-                console.log("DERECHA = " + labyrinth[posPlayerX][posPlayerY+1])
-                changuePosition(posPlayerX, posPlayerY, posPlayerX, posPlayerY+1)
-            }
+        else if((e.key === "d" || e.key === "D") && ready){
+            console.log("DERECHA = " + labyrinth[posPlayerX][posPlayerY+1])
+            changuePosition(posPlayerX, posPlayerY, posPlayerX, posPlayerY+1)
         }    
         
-        else if(e.key === "a" || e.key === "A"){
-            if(ready){
-                console.log("IZQUIERDA = " + labyrinth[posPlayerX][posPlayerY-1])
-                changuePosition(posPlayerX, posPlayerY, posPlayerX, posPlayerY-1)
-            }
+        else if((e.key === "a" || e.key === "A") && ready){
+            console.log("IZQUIERDA = " + labyrinth[posPlayerX][posPlayerY-1])
+            changuePosition(posPlayerX, posPlayerY, posPlayerX, posPlayerY-1)
         }    
     }
     
