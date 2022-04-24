@@ -20,6 +20,7 @@ import Mario from './Mario.jsx'
 import Champinion from '../img/Champinion.jpg'  
 import Block from '../img/Block.jpg'
 import YoshiDance from '../img/YoshiDance.gif'
+// import Background from '../img/backGroundMario2.jpg'
 
 const Game = () => {
                         
@@ -30,6 +31,7 @@ const Game = () => {
     const[height, setHeight] = useState(4)
     const[sprite, setSprite] = useState(0)
     const[position, setPosition] = useState(true)
+    const[finished, setFinished] = useState(false)
 
     let posPlayerX = -1
     let posPlayerY = -1
@@ -40,6 +42,7 @@ const Game = () => {
             alert("La cantidad ingresada es invalida, porfavor ingresar valores menores a 8")
         }
         else{
+            setFinished(false)
             setReady(false)
             fetch(`https://maze.juanelcaballo.club/?type=json&w=${weight}&h=${height}`)
             .then(response => response.json())
@@ -89,8 +92,7 @@ const Game = () => {
                 setLabyrinth(renderNewLabyrinth)
             }
             else if(element === 'g'){
-                alert("JUEGO TERMINADO")
-                setFinish(true)
+                setFinished(true)
             }
         }
     }
@@ -128,20 +130,27 @@ const Game = () => {
         </>)
     }
     
+    const ConfigLabyrinth = ({description}) => {
+        return(
+            <div className="camp-create">
+                <br/>
+                <h1 className="text-lab">{description}</h1>            
+                <form>
+                    <InputForLabyrinth field={"Weight:"} value={weight} setValue={setWeight} />
+                    <InputForLabyrinth field={"Height:"} value={height} setValue={setHeight} />
+                </form>
+                <br/>
+                <button className="btn-create" onClick={CreateNewLabyrinth}>CREATE NEW LABYRINTH</button>                
+                <br/>
+            </div>
+        )
+    }
+    
     const StartGame = () => {
+        
         return (
-            <div>
-                <div className="camp-create">
-                    <br/>
-                    <h1 className="text-lab">¡QUE EMPIECE EL JUEGO!</h1>            
-                    <form>
-                        <InputForLabyrinth field={"Ancho:"} value={weight} setValue={setWeight} />
-                        <InputForLabyrinth field={"Alto:"} value={height} setValue={setHeight} />
-                    </form>
-                    <br/>
-                    <button className="btn-create" onClick={CreateNewLabyrinth}>CREAR NUEVO LABERINTO</button>                
-                    <br/>
-                </div>
+            <div>                
+                <ConfigLabyrinth description={"¡LETS GET STARTED!"}/>
                 <br/>
                 <table>
                     <tbody>
@@ -157,11 +166,23 @@ const Game = () => {
             </div>   
         )
     }
+
+    const GameSet = () => {
+        return(
+            <div className="game-set">
+                <ConfigLabyrinth description={"¡PLEASE PERSONALIZATE YOUR NEXT LABYRINTH!"}/>
+                <h1 className="congratulations"><strong>CONGRATULATIONS :D</strong></h1>
+                <h2 className="details">You have already complete a labyrinth of {weight} x {height}</h2>
+                <br/>
+            </div>
+        )
+    }
         
     return (
         <div onKeyDown={handleKeyDown} tabIndex="0">
             {!ready && <Loding/>}
-            {ready && <StartGame/>}
+            {(ready && !finished) && <StartGame/>}
+            {finished && <GameSet/>}
         </div>        
     )
 }

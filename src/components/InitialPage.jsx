@@ -19,7 +19,9 @@ const InitialPage = ({setStart}) => {
     
     return ( 
         <>
-            <h1 className="title">Super Mario Bros <br/> Labyrinth Version</h1>
+            <div className="header">
+                <h1 className="title">Super Mario Bros <br/> Labyrinth Version</h1>
+            </div>
             <img className="img-main" src={MarioSVG} alt='Mario'></img>
             <br/>
             <button className="btn-start" onClick={() => setStart(true)}>START</button>
