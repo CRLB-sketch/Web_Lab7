@@ -2,9 +2,6 @@ import React, { useState, useEffect } from "react";
 import reactDom from 'react-dom';
 import InputForLabyrinth from "./Input.jsx";
 
-// import Styles from 'style-loader!css-loader?modules!../styles/style.css';
-import '../styles/style.css';
-
 const Game = () => {
                         
     const[labyrinth, setLabyrinth] = useState([])   
@@ -95,7 +92,7 @@ const Game = () => {
             {ready && 
                 <div>
                     {/* <h1 style={title}>¡QUE EMPIECE EL JUEGO!</h1>             */}
-                    <h1 className="title">¡QUE EMPIECE EL JUEGO!</h1>            
+                    <h1>¡QUE EMPIECE EL JUEGO!</h1>            
 
                     <form>
                         <InputForLabyrinth field={"Ancho:"} value={weight} setValue={setWeight} />

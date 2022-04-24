@@ -4,8 +4,6 @@ import ReactDOM from "react-dom";
 import InitialPage from "./components/InitialPage.jsx";
 import Game from "./components/Game.jsx"
 
-// import styl'./styles/style.css'
-// import Styles from 'style-loader!css-loader?modules!./styles/style.css';
 
 const App = () => {    
 
