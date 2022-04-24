@@ -1,3 +1,15 @@
+/*****************************************************************************************
+* Universidad del Valle de Guatemala
+* Sistemas y Tecnologías Web - Sección 10
+*
+* Laboratorio 7 - React With Webpack
+* 
+* ! Game / Juego : Estará toda la lógica para llevar a cabo exitosamente el juego
+*
+* @author   Cristian Fernando Laynez Bachez - 201281
+* @date     14-Abril-2022
+****************************************************************************************/
+
 import React, { useState, useEffect } from "react";
 import reactDom from 'react-dom';
 import InputForLabyrinth from "./Input.jsx";
@@ -23,15 +35,21 @@ const Game = () => {
     let posPlayerY = -1
     
     const CreateNewLabyrinth = () => {
-        setReady(false)
-        fetch(`https://maze.juanelcaballo.club/?type=json&w=${weight}&h=${height}`)
-        .then(response => response.json())
-        .then(result => {            
-            setLabyrinth(result)
-            setFinish(false)
-            setReady(true)
-        })
-        .catch(error => alert("Error inesperado con los shows" + error))
+        // Tocará que verificar de nuevo de todos modos por sí acaso
+        if(weight > 8 || height > 8){
+            alert("La cantidad ingresada es invalida, porfavor ingresar valores menores a 8")
+        }
+        else{
+            setReady(false)
+            fetch(`https://maze.juanelcaballo.club/?type=json&w=${weight}&h=${height}`)
+            .then(response => response.json())
+            .then(result => {            
+                setLabyrinth(result)
+                setFinish(false)
+                setReady(true)
+            })
+            .catch(error => alert("Error inesperado con los shows" + error))
+        }
     }
     
     useEffect(() => {
@@ -113,14 +131,18 @@ const Game = () => {
     const StartGame = () => {
         return (
             <div>
-                <h1>¡QUE EMPIECE EL JUEGO!</h1>            
-
-                <form>
-                    <InputForLabyrinth field={"Ancho:"} value={weight} setValue={setWeight} />
-                    <InputForLabyrinth field={"Alto:"} value={height} setValue={setHeight} />
-                </form>
+                <div className="camp-create">
+                    <br/>
+                    <h1 className="text-lab">¡QUE EMPIECE EL JUEGO!</h1>            
+                    <form>
+                        <InputForLabyrinth field={"Ancho:"} value={weight} setValue={setWeight} />
+                        <InputForLabyrinth field={"Alto:"} value={height} setValue={setHeight} />
+                    </form>
+                    <br/>
+                    <button className="btn-create" onClick={CreateNewLabyrinth}>CREAR NUEVO LABERINTO</button>                
+                    <br/>
+                </div>
                 <br/>
-                <button onClick={CreateNewLabyrinth}>CREAR NUEVO LABERINTO</button>                
                 <table>
                     <tbody>
                         {labyrinth.slice(0, labyrinth.length).map((item, i) => (

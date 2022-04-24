@@ -1,7 +1,14 @@
 body {
-    /* background-image: url("https://static.wikia.nocookie.net/ssb/images/4/4f/YoshiIslandSMW.png/revision/latest?cb=20100822042533"); */
-    background-image: "../img/backGroundMario2.png";
+    /* background-image: url("../img/backGroundMario2.jpg"); */
+    /* background-image: "../img/backGroundMario2.jpg"; */
     background-color: rgb(0, 0, 120);
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
 }
 
 /* ELEMENTOS DEL MENU EN GENERAL */
@@ -53,6 +60,54 @@ body {
     color: white;
     text-align: center;    
     font-size: 50px;
+}
+
+/* TITULO E INPUTS PARA PREPARAR LABERINTO */
+
+.camp-create {
+    background-color: rgb(3, 207, 207);
+    margin: 25px;
+}
+
+.text-lab {
+    text-align: center;
+    color: white;
+    font-size: 25px;    
+}
+
+.label-lab {
+    color: white;
+    font-size: 25px;        
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.inp-number {
+    color: white;
+    background-color: black;
+    margin: 10px;
+    font-size: 25px;
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn-create {
+    border: 10px;
+    color: white;
+    background-color: rgb(0, 175, 175);
+    width: 250px;
+    height: 50px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn-create:hover{
+    background-color: greenyellow;
 }
 
 /* ELEMENTOS DEL JUEGO DEL LABERINTO EN SI */

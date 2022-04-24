@@ -1,5 +1,18 @@
+/*****************************************************************************************
+* Universidad del Valle de Guatemala
+* Sistemas y Tecnologías Web - Sección 10
+*
+* Laboratorio 7 - React With Webpack
+* 
+* ! Mario : Realmente este tendrá un poco de lógica para cambiar los sprites
+*
+* @author   Cristian Fernando Laynez Bachez - 201281
+* @date     14-Abril-2022
+****************************************************************************************/
+
 import React, { useState, useEffect } from "react";
 
+// Sprites de Mario
 import MarioS1 from "../img/MarioS1.jpg"
 import MarioS2 from "../img/MarioS2.jpg"
 import MarioS3 from "../img/MarioS3.jpg"
