@@ -20,26 +20,17 @@ export default {
                 use: ["style-loader", "css-loader"]
             },
             {
-                test: /\.(png|jpg)$/,
+                test: /\.(png|jpg|gif)$/,
                 loader: 'url-loader'
             },
+            { test: [/\.svg$/], use: ['file-loader']},
             // {
-            //     test: /\.css$/,
-            //     use: [
-            //         // [style-loader](/loaders/style-loader)
-            //         { loader: 'style-loader' },
-            //         // [css-loader](/loaders/css-loader)
-            //         {
-            //             loader: 'css-loader',
-            //             options: {
-            //               modules: true
-            //             }
-            //         },
-            //         // [sass-loader](/loaders/sass-loader)
-            //         // { loader: 'sass-loader' }
-            //     ]
-            // },
-            { test: [/\.svg$/, /\.png$/], use: ['file-loader']}
+            //     test: /\.mp3$/,
+            //     loader: 'file-loader',
+            //     query: {
+            //         name: 'static/media/[name].[hash:8].[ext]'
+            //     }
+            // }
         ]
     }
 }

@@ -2,6 +2,13 @@ import React, { useState, useEffect } from "react";
 import reactDom from 'react-dom';
 import InputForLabyrinth from "./Input.jsx";
 
+import Mario from './Mario.jsx'
+
+// Cargar las imagenes
+import Champinion from '../img/Champinion.jpg'  
+import Block from '../img/Block.jpg'
+import YoshiDance from '../img/YoshiDance.gif'
+
 const Game = () => {
                         
     const[labyrinth, setLabyrinth] = useState([])   
@@ -9,6 +16,8 @@ const Game = () => {
     const[finish, setFinish] = useState(false)
     const[weight, setWeight] = useState(4)
     const[height, setHeight] = useState(4)
+    const[sprite, setSprite] = useState(0)
+    const[position, setPosition] = useState(true)
 
     let posPlayerX = -1
     let posPlayerY = -1
@@ -34,10 +43,19 @@ const Game = () => {
         if(element === 'p'){
             posPlayerX = i
             posPlayerY = j
+            return (<Mario sprite={sprite} position={position} />)
+        }
+
+        if(element === '+' || element === '-' || element === '|'){
+            return(<td><img className="block" src={Block} alt="BLOCK"></img></td>)
+        }
+
+        if(element === 'g'){
+            return(<td className="td-img"><img className="champinion" src={Champinion} alt="GOAL"></img></td>)
         }
         
         return(
-            <td>{element}</td>
+            <td className="ground">{element}</td>
         )
     }    
 
@@ -45,7 +63,6 @@ const Game = () => {
         if(!finish){
             const element = labyrinth[x][y]
             if(element === ' '){
-                console.log("CAMINAR")
                 const renderNewLabyrinth = [...labyrinth]
                 renderNewLabyrinth[defX][defY] = ' '
                 renderNewLabyrinth[x][y] = 'p'
@@ -62,58 +79,67 @@ const Game = () => {
 
     const handleKeyDown = (e) => {        
         if((e.key === "w" || e.key === "W") && ready){
-            console.log("ARRIBA = " + labyrinth[posPlayerX-1][posPlayerY])
             changuePosition(posPlayerX, posPlayerY, posPlayerX-1, posPlayerY)
+            setSprite((sprite > 1) ? 0 : sprite + 1)
         }    
         
         else if((e.key === "s" || e.key === "S") && ready){
-            console.log("ABAJO = " + labyrinth[posPlayerX+1][posPlayerY])
             changuePosition(posPlayerX, posPlayerY, posPlayerX+1, posPlayerY)
+            setSprite((sprite > 1) ? 0 : sprite + 1)
         }    
         
         else if((e.key === "d" || e.key === "D") && ready){
-            console.log("DERECHA = " + labyrinth[posPlayerX][posPlayerY+1])
             changuePosition(posPlayerX, posPlayerY, posPlayerX, posPlayerY+1)
+            setSprite((sprite > 1) ? 0 : sprite + 1)
+            setPosition(true)
         }    
         
         else if((e.key === "a" || e.key === "A") && ready){
-            console.log("IZQUIERDA = " + labyrinth[posPlayerX][posPlayerY-1])
             changuePosition(posPlayerX, posPlayerY, posPlayerX, posPlayerY-1)
+            setSprite((sprite > 1) ? 0 : sprite + 1)
+            setPosition(false)
         }    
     }
+
+    const Loding = () => {
+        return(<>
+            <br/>
+            <br/>
+            <img className="img-load" src={YoshiDance} alt="YOSHI DANCE"></img>
+            <h1 className="loading">Cargando...</h1>
+        </>)
+    }
     
-    // const title = {
-    //     color: 'red'
-    // }
-    
+    const StartGame = () => {
+        return (
+            <div>
+                <h1>¡QUE EMPIECE EL JUEGO!</h1>            
+
+                <form>
+                    <InputForLabyrinth field={"Ancho:"} value={weight} setValue={setWeight} />
+                    <InputForLabyrinth field={"Alto:"} value={height} setValue={setHeight} />
+                </form>
+                <br/>
+                <button onClick={CreateNewLabyrinth}>CREAR NUEVO LABERINTO</button>                
+                <table>
+                    <tbody>
+                        {labyrinth.slice(0, labyrinth.length).map((item, i) => (
+                            <tr>
+                                {item.map((element, j) => (
+                                    <InsertElement element={element} i={i} j={j} />
+                                ))}
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>                    
+            </div>   
+        )
+    }
+        
     return (
         <div onKeyDown={handleKeyDown} tabIndex="0">
-            {!ready && <h1>Cargando...</h1>}
-            {ready && 
-                <div>
-                    {/* <h1 style={title}>¡QUE EMPIECE EL JUEGO!</h1>             */}
-                    <h1>¡QUE EMPIECE EL JUEGO!</h1>            
-
-                    <form>
-                        <InputForLabyrinth field={"Ancho:"} value={weight} setValue={setWeight} />
-                        <InputForLabyrinth field={"Alto:"} value={height} setValue={setHeight} />
-                    </form>
-                    <br/>
-                    <button onClick={CreateNewLabyrinth}>CREAR NUEVO LABERINTO</button>
-                    
-                    <table>
-                        <tbody>
-                            {labyrinth.slice(0, labyrinth.length).map((item, i) => (
-                                <tr>
-                                    {item.map((element, j) => (
-                                        <InsertElement element={element} i={i} j={j} />
-                                    ))}
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>                    
-                </div>            
-            }
+            {!ready && <Loding/>}
+            {ready && <StartGame/>}
         </div>        
     )
 }

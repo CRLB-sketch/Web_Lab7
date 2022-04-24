@@ -1,10 +1,101 @@
-/* .pared {
-    background-color: blue;
-    height: 100px;
-    width: 100px;
-} */
+body {
+    /* background-image: url("https://static.wikia.nocookie.net/ssb/images/4/4f/YoshiIslandSMW.png/revision/latest?cb=20100822042533"); */
+    background-image: "../img/backGroundMario2.png";
+    background-color: rgb(0, 0, 120);
+}
 
+/* ELEMENTOS DEL MENU EN GENERAL */
 .title {
-    color: blue;
+    color: white;
     background-color: red;
+    text-align: center;
+    font-size: 40px;
+}
+
+.img-main {
+    width: 400px;
+    height: 400px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.btn-start {
+    border: 5px;
+    width: 250px;
+    height: 100px;
+    font-size: 30px;
+    background-color: red;
+    color: white;    
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.btn-start:hover{
+    background-color: greenyellow;
+}
+
+/* ELEMENTOS QUE MOSTRARAN EL TIEMPO DE CARGA */
+
+.img-load {    
+    width: 340px;
+    height: 400px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.loading {
+    color: white;
+    text-align: center;    
+    font-size: 50px;
+}
+
+/* ELEMENTOS DEL JUEGO DEL LABERINTO EN SI */
+.obstacle {
+    width: 50px;
+    height: 50px;
+    background-color: brown;
+}
+
+.ground {
+    width: 50px;
+    height: 50px;
+    background-image: url("../img/Ground.jpg");
+    background-color: green;
+}
+
+.td-img {
+    background-image: url("../img/Ground.jpg");
+    background-color: green;
+}
+
+.position-right {
+    width: 65px;
+    height: 65px;
+}
+
+.position-left {
+    width: 65px;
+    height: 65px;
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+
+.champinion {
+    width: 40px;
+    height: 40px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.block {
+    width: 100;
+    height: 100;
 }

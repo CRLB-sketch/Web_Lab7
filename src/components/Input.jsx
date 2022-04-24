@@ -12,7 +12,7 @@ const InputForLabyrinth = ({field, value, setValue}) => {
                 required
                 value={value}
                 min="4"
-                max="10"
+                max="8"
                 onChange={(e) => setValue(e.target.value)}
             />
         </>

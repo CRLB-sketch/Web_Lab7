@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
 
+import './styles/styles.css';
+
 import InitialPage from "./components/InitialPage.jsx";
 import Game from "./components/Game.jsx"
 
