@@ -11,7 +11,6 @@
 ****************************************************************************************/
 
 import React, { useState, useEffect } from "react";
-import reactDom from 'react-dom';
 import InputForLabyrinth from "./Input.jsx";
 
 import Mario from './Mario.jsx'
@@ -20,7 +19,10 @@ import Mario from './Mario.jsx'
 import Champinion from '../img/Champinion.jpg'  
 import Block from '../img/Block.jpg'
 import YoshiDance from '../img/YoshiDance.gif'
-// import Background from '../img/backGroundMario2.jpg'
+
+import Music from "./Music.jsx";
+
+const music = new Music()
 
 const Game = () => {
                         
@@ -44,12 +46,15 @@ const Game = () => {
         else{
             setFinished(false)
             setReady(false)
+            music.stop_main_sound()
+            music.stop_victory_sound()
             fetch(`https://maze.juanelcaballo.club/?type=json&w=${weight}&h=${height}`)
             .then(response => response.json())
             .then(result => {            
                 setLabyrinth(result)
                 setFinish(false)
                 setReady(true)
+                music.play_main_sound()
             })
             .catch(error => alert("Error inesperado con los shows" + error))
         }
@@ -93,6 +98,8 @@ const Game = () => {
             }
             else if(element === 'g'){
                 setFinished(true)
+                music.stop_main_sound()
+                music.play_victory_sound()
             }
         }
     }

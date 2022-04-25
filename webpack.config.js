@@ -14,23 +14,10 @@ export default {
     },
     module: {
         rules: [
-            { test: [/\.jsx?$/], use: ['babel-loader']},
-            {
-                test: /\.css$/,
-                use: ["style-loader", "css-loader"]
-            },
-            {
-                test: /\.(png|jpg|gif)$/,
-                loader: 'url-loader'
-            },
-            { test: [/\.svg$/], use: ['file-loader']},
-            // {
-            //     test: /\.mp3$/,
-            //     loader: 'file-loader',
-            //     query: {
-            //         name: 'static/media/[name].[hash:8].[ext]'
-            //     }
-            // }
+            { test: [/\.jsx?$/], use: ['babel-loader'] },
+            { test: /\.css$/, use: ["style-loader", "css-loader"] },
+            { test: /\.(png|jpg|gif)$/, loader: 'url-loader' },
+            { test: [/\.(svg|mp3)$/], use: ['file-loader']},
         ]
     }
 }
