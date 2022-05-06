@@ -11,6 +11,7 @@
 ****************************************************************************************/
 
 import React from 'react'
+import PropTypes from 'prop-types'
 
 // Sprites de Mario
 import MarioS1 from '../img/MarioS1.jpg'
@@ -33,6 +34,11 @@ const Mario = ({ sprite, position }) => {
 
         </>
     )
+}
+
+Mario.propTypes = {    
+    sprite: PropTypes.number,
+    position: PropTypes.bool
 }
 
 export default Mario

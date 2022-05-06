@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import React from 'react'
 
 const GameSet = ({weight, height, ConfigLabyrinth}) => {
@@ -9,6 +10,12 @@ const GameSet = ({weight, height, ConfigLabyrinth}) => {
             <br/>
         </div>
     )
+}
+
+GameSet.propTypes = {
+    weight: PropTypes.number,
+    height: PropTypes.number,
+    ConfigLabyrinth: PropTypes.func
 }
 
 export default GameSet

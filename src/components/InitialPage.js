@@ -10,6 +10,7 @@
 * @date     14-Abril-2022
 ****************************************************************************************/
 
+import PropTypes from 'prop-types'
 import React from 'react'
 
 import MarioSVG from '../img/MarioBackground0.svg'
@@ -26,6 +27,10 @@ const InitialPage = ({setStart}) => {
             <button className='btn-start' onClick={() => setStart(true)}>START</button>
         </> 
     )
+}
+
+InitialPage.propTypes = {
+    setStart: PropTypes.bool
 }
 
 export default InitialPage

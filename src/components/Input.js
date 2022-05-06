@@ -11,6 +11,7 @@
 ****************************************************************************************/
 
 import React from 'react'
+import PropTypes from 'prop-types'
 
 const InputForLabyrinth = ({field, value, setValue}) => {
 
@@ -30,6 +31,12 @@ const InputForLabyrinth = ({field, value, setValue}) => {
             />
         </div>
     )
+}
+
+InputForLabyrinth.propTypes = {
+    field: PropTypes.string,
+    value: PropTypes.number,
+    setValue: PropTypes.number
 }
 
 export default InputForLabyrinth

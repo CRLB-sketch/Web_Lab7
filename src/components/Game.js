@@ -11,7 +11,7 @@
 ****************************************************************************************/
 
 import React, { useState, useEffect } from 'react'
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 
 // Cargar las imagenes
 import Champinion from '../img/Champinion.jpg'  
@@ -183,6 +183,13 @@ const Game = () => {
             {finished && <GameSet weight={weight} height={height} ConfigLabyrinth={ConfigLabyrinth} />}
         </div>        
     )
+}
+
+Game.propTypes = {
+    description: PropTypes.string,
+    element: PropTypes.string,
+    i: PropTypes.number,
+    j: PropTypes.number,
 }
 
 export default Game
