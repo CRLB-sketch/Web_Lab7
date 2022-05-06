@@ -10,24 +10,21 @@
 * @date     14-Abril-2022
 ****************************************************************************************/
 
-// import PropTypes from 'prop-types'
-
 import React, { useState, useEffect } from 'react'
-
-
-import Mario from './Mario.js'
+// import PropTypes from 'prop-types'
 
 // Cargar las imagenes
 import Champinion from '../img/Champinion.jpg'  
 import Block from '../img/Block.jpg'
 
-import Music from './Music.js'
-
 // Importar componentes
+import Mario from './Mario.js'
 import InputForLabyrinth from './Input.js'
 import Loding from './Loding.js'
 import GameSet from './GameSet.js'
-// import ConfigLabyrinth from './ConfigLabyrinth.js'
+
+// Importar clase de música
+import Music from './Music.js'
 
 const music = new Music()
 
@@ -44,8 +41,7 @@ const Game = () => {
 
     let posPlayerX = -1
     let posPlayerY = -1
-    
-    
+        
     const CreateNewLabyrinth = () => {
         // Tocará que verificar de nuevo de todos modos por sí acaso
         if(weight > 8 || height > 8){
@@ -89,7 +85,6 @@ const Game = () => {
     }
     
     const InsertElement = ({element, i, j}) => {
-
         if(element === 'p'){
             posPlayerX = i
             posPlayerY = j
@@ -151,9 +146,7 @@ const Game = () => {
             setPosition(false)
         }    
     }
-    
-
-    
+        
     const StartGame = () => {        
         return (
             <div>                
@@ -165,6 +158,15 @@ const Game = () => {
                             <tr>
                                 {item.map((element, j) => (
                                     <InsertElement element={element} i={i} j={j} />
+                                    // <InsertElement 
+                                    //     element={element} 
+                                    //     i={i} 
+                                    //     j={j} 
+                                    //     sprite={sprite}
+                                    //     position={position}
+                                    //     posPlayerX={posPlayerX}
+                                    //     posPlayerY={posPlayerY}
+                                    // />
                                 ))}
                             </tr>
                         ))}
@@ -173,8 +175,6 @@ const Game = () => {
             </div>   
         )
     }
-
-
         
     return (
         <div onKeyDown={handleKeyDown} tabIndex='0'>
