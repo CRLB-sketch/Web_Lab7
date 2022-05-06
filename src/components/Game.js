@@ -10,17 +10,24 @@
 * @date     14-Abril-2022
 ****************************************************************************************/
 
+// import PropTypes from 'prop-types'
+
 import React, { useState, useEffect } from 'react'
-import InputForLabyrinth from './Input.js'
+
 
 import Mario from './Mario.js'
 
 // Cargar las imagenes
 import Champinion from '../img/Champinion.jpg'  
 import Block from '../img/Block.jpg'
-import YoshiDance from '../img/YoshiDance.gif'
 
 import Music from './Music.js'
+
+// Importar componentes
+import InputForLabyrinth from './Input.js'
+import Loding from './Loding.js'
+import GameSet from './GameSet.js'
+// import ConfigLabyrinth from './ConfigLabyrinth.js'
 
 const music = new Music()
 
@@ -37,6 +44,7 @@ const Game = () => {
 
     let posPlayerX = -1
     let posPlayerY = -1
+    
     
     const CreateNewLabyrinth = () => {
         // Tocará que verificar de nuevo de todos modos por sí acaso
@@ -63,6 +71,22 @@ const Game = () => {
     useEffect(() => {
         CreateNewLabyrinth()
     }, [])    
+    
+    const ConfigLabyrinth = ({description}) => {
+        return(
+            <div className='camp-create'>
+                <br/>
+                <h1 className='text-lab'>{description}</h1>            
+                <form>
+                    <InputForLabyrinth field={'Weight:'} value={weight} setValue={setWeight} />
+                    <InputForLabyrinth field={'Height:'} value={height} setValue={setHeight} />
+                </form>
+                <br/>
+                <button className='btn-create' onClick={CreateNewLabyrinth}>CREATE NEW LABYRINTH</button>                
+                <br/>
+            </div>
+        )
+    }
     
     const InsertElement = ({element, i, j}) => {
 
@@ -127,37 +151,13 @@ const Game = () => {
             setPosition(false)
         }    
     }
+    
 
-    const Loding = () => {
-        return(<>
-            <br/>
-            <br/>
-            <img className='img-load' src={YoshiDance} alt='YOSHI DANCE'></img>
-            <h1 className='loading'>Cargando...</h1>
-        </>)
-    }
     
-    const ConfigLabyrinth = ({description}) => {
-        return(
-            <div className='camp-create'>
-                <br/>
-                <h1 className='text-lab'>{description}</h1>            
-                <form>
-                    <InputForLabyrinth field={'Weight:'} value={weight} setValue={setWeight} />
-                    <InputForLabyrinth field={'Height:'} value={height} setValue={setHeight} />
-                </form>
-                <br/>
-                <button className='btn-create' onClick={CreateNewLabyrinth}>CREATE NEW LABYRINTH</button>                
-                <br/>
-            </div>
-        )
-    }
-    
-    const StartGame = () => {
-        
+    const StartGame = () => {        
         return (
             <div>                
-                <ConfigLabyrinth description={'¡LETS GET STARTED!'}/>
+                <ConfigLabyrinth description={'¡LETS GET STARTED!'} />
                 <br/>
                 <table>
                     <tbody>
@@ -174,22 +174,13 @@ const Game = () => {
         )
     }
 
-    const GameSet = () => {
-        return(
-            <div className='game-set'>
-                <ConfigLabyrinth description={'¡PLEASE PERSONALIZATE YOUR NEXT LABYRINTH!'}/>
-                <h1 className='congratulations'><strong>CONGRATULATIONS :D</strong></h1>
-                <h2 className='details'>You have already complete a labyrinth of {weight} x {height}</h2>
-                <br/>
-            </div>
-        )
-    }
+
         
     return (
         <div onKeyDown={handleKeyDown} tabIndex='0'>
             {!ready && <Loding/>}
             {(ready && !finished) && <StartGame/>}
-            {finished && <GameSet/>}
+            {finished && <GameSet weight={weight} height={height} ConfigLabyrinth={ConfigLabyrinth} />}
         </div>        
     )
 }
